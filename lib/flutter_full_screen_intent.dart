@@ -1,0 +1,8 @@
+
+import 'flutter_full_screen_intent_platform_interface.dart';
+
+class FlutterFullScreenIntent {
+  Future<String?> getPlatformVersion() {
+    return FlutterFullScreenIntentPlatform.instance.getPlatformVersion();
+  }
+}
