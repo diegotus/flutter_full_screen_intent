@@ -2,7 +2,7 @@
   package="com.diegotus.flutter_full_screen_intent">
   <application
     android:name=".MyApplication"
-    android:label="full_screen_intent"
+    android:label="flutter_full_screen_intent"
     android:icon="@mipmap/ic_launcher">
   </application>
 </manifest>
