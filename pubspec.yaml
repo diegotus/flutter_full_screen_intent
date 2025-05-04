@@ -1,6 +1,6 @@
 name: flutter_full_screen_intent
 description: A plugin to open an app to a specific page even if the app is closed 
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/diegotus/flutter_full_screen_intent
 
 environment:

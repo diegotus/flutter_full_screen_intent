@@ -1,6 +1,3 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.diegotus.flutter_full_screen_intent">
-  <application
-    android:name=".MyApplication">
-  </application>
 </manifest>
