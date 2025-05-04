@@ -11,8 +11,10 @@ class MockFlutterFullScreenIntentPlatform
   Future<String?> getPlatformVersion() => Future.value('42');
 
   @override
-  Future<bool> openFullScreenWidget([String route = '/']) {
-    // TODO: implement openFullScreenWidget
+  Future<bool> openFullScreenWidget([
+    String route = '/',
+    Map<String, String>? args,
+  ]) {
     throw UnimplementedError();
   }
 }

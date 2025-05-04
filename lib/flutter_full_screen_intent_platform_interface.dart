@@ -28,7 +28,10 @@ abstract class FlutterFullScreenIntentPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<bool> openFullScreenWidget([String route = '/']) async {
+  Future<bool> openFullScreenWidget([
+    String route = '/',
+    Map<String, String>? args,
+  ]) async {
     throw UnimplementedError(
       'openFullScreenWidget() has not been implemented.',
     );

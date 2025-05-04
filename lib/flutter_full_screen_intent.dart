@@ -5,9 +5,13 @@ class FlutterFullScreenIntent {
     return FlutterFullScreenIntentPlatform.instance.getPlatformVersion();
   }
 
-  Future<bool> openFullScreenWidget([String route = '/']) async {
+  Future<bool> openFullScreenWidget([
+    String route = '/',
+    Map<String, String>? args,
+  ]) async {
     return await FlutterFullScreenIntentPlatform.instance.openFullScreenWidget(
       route,
+      args,
     );
   }
 }

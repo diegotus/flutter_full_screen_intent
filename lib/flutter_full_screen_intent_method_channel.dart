@@ -19,11 +19,14 @@ class MethodChannelFlutterFullScreenIntent
   }
 
   @override
-  Future<bool> openFullScreenWidget([String route = '/']) async {
-    return await methodChannel.invokeMethod<bool>(
-          'openFullScreenWidget',
-          route,
-        ) ??
+  Future<bool> openFullScreenWidget([
+    String route = '/',
+    Map<String, String>? args,
+  ]) async {
+    return await methodChannel.invokeMethod<bool>('openFullScreenWidget', {
+          'route': route,
+          if (args != null) "arguments": args,
+        }) ??
         false;
   }
 }

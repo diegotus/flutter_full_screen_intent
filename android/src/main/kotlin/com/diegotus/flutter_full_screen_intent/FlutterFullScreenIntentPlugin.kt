@@ -27,7 +27,8 @@ class FlutterFullScreenIntentPlugin : FlutterPlugin, MethodCallHandler {
                 result.success("Android ${android.os.Build.VERSION.RELEASE}")
             }
             "openFullScreenWidget" -> {
-                val route = call.argument<String>("route") // Use argument<String>
+                val route = call.argument<String>("route");// Use argument<String>
+                val arguments = call.argument<Map<String, String>>("arguments") // Use argument<String>
                 if (route.isNullOrBlank()) {
                     result.error(
                         "INVALID_ARGUMENT",
@@ -37,7 +38,7 @@ class FlutterFullScreenIntentPlugin : FlutterPlugin, MethodCallHandler {
                     return  // Important: Return after error
                 }
                 try {
-                    openFullScreenWidget(route)
+                    openFullScreenWidget(route, arguments)
                     result.success(true)
                 } catch (e: Exception) {
                     Log.e("FlutterFullScreenIntentPlugin", "Failed to open full screen widget", e)
@@ -48,13 +49,16 @@ class FlutterFullScreenIntentPlugin : FlutterPlugin, MethodCallHandler {
         }
     }
 
-    private fun openFullScreenWidget(route: String) {
+    private fun openFullScreenWidget(route: String, routeArguments: Map<String, String>?) {
         try {
+            val args = routeArguments ?: emptyMap()
             val intent = FlutterActivity
                 .withNewEngine()
                 .initialRoute(route)
                 .build(context)
-
+                args.forEach { (key, value) -> 
+                    intent.putExtra(key, value)
+                }
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(intent)
             Log.d("FullScreenIntentPlugin", "Started FlutterActivity with route: $route")
