@@ -7,21 +7,32 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockFlutterFullScreenIntentPlatform
     with MockPlatformInterfaceMixin
     implements FlutterFullScreenIntentPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+
+  @override
+  Future<bool> openFullScreenWidget([String route = '/']) {
+    // TODO: implement openFullScreenWidget
+    throw UnimplementedError();
+  }
 }
 
 void main() {
-  final FlutterFullScreenIntentPlatform initialPlatform = FlutterFullScreenIntentPlatform.instance;
+  final FlutterFullScreenIntentPlatform initialPlatform =
+      FlutterFullScreenIntentPlatform.instance;
 
   test('$MethodChannelFlutterFullScreenIntent is the default instance', () {
-    expect(initialPlatform, isInstanceOf<MethodChannelFlutterFullScreenIntent>());
+    expect(
+      initialPlatform,
+      isInstanceOf<MethodChannelFlutterFullScreenIntent>(),
+    );
   });
 
   test('getPlatformVersion', () async {
-    FlutterFullScreenIntent flutterFullScreenIntentPlugin = FlutterFullScreenIntent();
-    MockFlutterFullScreenIntentPlatform fakePlatform = MockFlutterFullScreenIntentPlatform();
+    FlutterFullScreenIntent flutterFullScreenIntentPlugin =
+        FlutterFullScreenIntent();
+    MockFlutterFullScreenIntentPlatform fakePlatform =
+        MockFlutterFullScreenIntentPlatform();
     FlutterFullScreenIntentPlatform.instance = fakePlatform;
 
     expect(await flutterFullScreenIntentPlugin.getPlatformVersion(), '42');
