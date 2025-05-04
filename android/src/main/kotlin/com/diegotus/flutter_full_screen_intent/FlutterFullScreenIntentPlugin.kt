@@ -44,9 +44,9 @@ class FlutterFullScreenIntentPlugin: FlutterPlugin, MethodCallHandler {
   
   private fun openFullScreenWidget(route: String) {
     val intent = FlutterActivity
-        .withCachedEngine("fullScreenIntentPlugin_diego")
-        .initialRoute(route)
-        .build(context)
+    .withNewEngine()
+    .initialRoute(route)
+    .build(context)
 
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     context.startActivity(intent)
